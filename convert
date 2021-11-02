@@ -1,0 +1,21 @@
+#!/bin/bash
+
+filebare=$1
+filetarget="$1.sql"
+
+if [[ ! -f $filetarget ]]; then
+  echo "File not found" >&2
+  exit 1
+fi
+
+cdir=$(dirname $1)
+fileext="sqlite3"
+if [[ $# -ge 2 ]]; then
+  fileext=$2
+fi
+sqlout="${cdir}/${filebare}.${fileext}"
+
+apt update
+apt install sqlite3
+
+sqlite3 $sqlout < $filetarget

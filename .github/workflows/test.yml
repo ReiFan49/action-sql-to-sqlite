@@ -15,5 +15,6 @@ jobs:
     - uses: actions/checkout@v2
     - uses: ./
       with:
-        out-name: Rinze1
-        sql-file: __tests__/${{ github.job }}/shiny-small.sql
+        name: Rinze1
+        file: __tests__/${{ github.job }}/shiny-small
+        extension: mdb
