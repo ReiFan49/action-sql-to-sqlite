@@ -1,6 +1,5 @@
 #!/bin/bash
 
-filebare=$1
 filetarget="$1.sql"
 
 if [[ ! -f $filetarget ]]; then
@@ -9,6 +8,7 @@ if [[ ! -f $filetarget ]]; then
 fi
 
 cdir=$(dirname $1)
+filebare=$(basename $1)
 fileext="sqlite3"
 if [[ $# -ge 2 ]]; then
   fileext=$2
