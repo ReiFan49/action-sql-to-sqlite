@@ -6,6 +6,7 @@ on:
     paths:
       - '**.yml'
       - '__tests__/**'
+      - '/convert'
   workflow_dispatch:
 jobs:
   simple-upload:

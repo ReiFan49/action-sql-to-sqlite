@@ -18,4 +18,8 @@ sqlout="${cdir}/${filebare}.${fileext}"
 sudo apt update
 sudo apt install sqlite3
 
+if [[ ! -f $sqlout ]]; then
+  touch $sqlout
+fi
+
 sqlite3 $sqlout < $filetarget
