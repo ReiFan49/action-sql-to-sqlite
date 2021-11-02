@@ -6,10 +6,10 @@ on:
     paths:
       - '**.yml'
       - '__tests__/**'
+  workflow_dispatch:
 jobs:
   simple-upload:
     runs-on: ubuntu-latest
-    continue-on-error: true
     name: Simple Test
     steps:
     - uses: actions/checkout@v2
