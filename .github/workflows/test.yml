@@ -3,7 +3,7 @@ on:
   push:
     branches:
       - master
-    paths-ignore:
+    paths:
       - '**.yml'
       - '__tests__/**'
 jobs:
