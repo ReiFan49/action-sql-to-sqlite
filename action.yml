@@ -1,0 +1,19 @@
+name: 'SQL to SQLite3 File'
+description: 'Compile your SQL file automatically!'
+author: 'Rei Hakurei <reimu_after_marisa@yahoo.com>'
+inputs:
+  sql-file:
+    description: 'SQL file to target on'
+    required: true
+  out-name:
+    description: 'Output filename'
+    required: true
+runs:
+  using: composite
+  steps:
+    - name: Upload SQLite File
+      uses: actions/upload-artifact@v2
+      with:
+        name: ${{ inputs.out-name }}
+        path: ${{ github.workspace }}/${{ inputs.sql-file }}
+        if-no-files-found: error

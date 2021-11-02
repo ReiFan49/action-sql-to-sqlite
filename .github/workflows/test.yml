@@ -1,0 +1,19 @@
+name: Test
+on:
+  push:
+    branches:
+      - master
+    paths-ignore:
+      - '**.yml'
+      - '__tests__/**'
+jobs:
+  simple-upload:
+    runs-on: ubuntu-latest
+    continue-on-error: true
+    name: Simple Test
+    steps:
+    - uses: actions/checkout@v2
+    - uses: ./
+      with:
+        name: Rinze1
+        path: __tests__/${{ github.job }}/shiny-small.sql
