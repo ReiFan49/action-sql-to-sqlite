@@ -16,7 +16,7 @@ runs:
   using: composite
   steps:
     - name: Create SQLite File
-      run: ${{ github.action_path }}/convert ${{ inputs.file }} ${{ inputs.extension }}
+      run: ${{ github.action_path }}/convert '${{ inputs.file }}' ${{ inputs.extension }}
       shell: bash
     - name: Upload SQLite File
       uses: actions/upload-artifact@v2

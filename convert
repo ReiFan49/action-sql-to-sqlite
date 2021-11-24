@@ -2,24 +2,26 @@
 
 filetarget="$1.sql"
 
-if [[ ! -f $filetarget ]]; then
+if [[ ! -f "$filetarget" ]]; then
   echo "File not found" >&2
   exit 1
 fi
 
-cdir=$(dirname $1)
-filebare=$(basename $1)
+cdir=$(dirname "$1")
+filebare=$(basename "$1")
 fileext="sqlite3"
 if [[ $# -ge 2 ]]; then
   fileext=$2
 fi
 sqlout="${cdir}/${filebare}.${fileext}"
+echo "Target input: ->${filetarget}<-"
+echo "Target output: ->${sqlout}<-"
 
 sudo apt update
 sudo apt install sqlite3
 
-if [[ ! -f $sqlout ]]; then
-  touch $sqlout
+if [[ ! -f "$sqlout" ]]; then
+  touch "$sqlout"
 fi
 
-sqlite3 $sqlout < $filetarget
+sqlite3 "$sqlout" < "$filetarget"

@@ -16,6 +16,16 @@ jobs:
     - uses: actions/checkout@v2
     - uses: ./
       with:
-        name: Rinze1
+        name: Rinze1 (Standard)
         file: __tests__/${{ github.job }}/shiny-small
+        extension: mdb
+  spaced-upload:
+    runs-on: ubuntu-latest
+    name: Spaced Test
+    steps:
+    - uses: actions/checkout@v2
+    - uses: ./
+      with:
+        name: Rinze1 (Spaced File Name)
+        file: __tests__/${{ github.job }}/shiny small
         extension: mdb
