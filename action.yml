@@ -1,6 +1,6 @@
 name: 'SQL to SQLite3 File'
 description: 'Compile your SQL file automatically!'
-author: 'Rei Hakurei <reimu_after_marisa@yahoo.com>'
+author: 'Rei Hakurei <contact@bloom-juery.net>'
 inputs:
   file:
     description: SQL file to target on
@@ -19,7 +19,7 @@ runs:
       run: ${{ github.action_path }}/convert '${{ inputs.file }}' ${{ inputs.extension }}
       shell: bash
     - name: Upload SQLite File
-      uses: actions/upload-artifact@v2
+      uses: actions/upload-artifact@v4
       with:
         name: ${{ inputs.name }}
         path: ${{ github.workspace }}/${{ inputs.file }}.${{ inputs.extension }}
